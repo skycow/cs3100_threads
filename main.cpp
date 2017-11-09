@@ -21,16 +21,8 @@ void threadStart(int threadId, std::mutex& mutex)
 	}
 }
 
-void calcPi(SafeQueue & inQueue, std::unordered_map & resMap)
+Class SafeQueue:
 {
-	int nextVal;
-	while(inQueue.getNext(&nextVal))
-	{
-		
-	}
-}
-
-Class SafeQueue{
 	private
 	  std::mutex mutex;
 	  std::queue theQueue;
@@ -58,6 +50,16 @@ Class SafeQueue{
 			}
 	}
 
+}
+
+void calcPi(SafeQueue & inQueue, std::unordered_map & resMap)
+{
+	int nextVal;
+	while(inQueue.getNext(&nextVal))
+	{
+		//compute pi
+		safeInsert(nextVal, nextVal);
+	}
 }
 
 int main()
